@@ -1,4 +1,4 @@
-<Project DefaultTargets="CreateInfo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../Xsd/MSBuild.Community.Tasks.xsd">
+<Project DefaultTargets="CreateInfo" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://MSBuild/Community/Tasks Xsd/MSBuild.Community.Tasks.xsd">
 
   <PropertyGroup>
     <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\..\packages\MSBuildTasks.1.5.0.235\tools</MSBuildCommunityTasksPath>
@@ -6,28 +6,8 @@
 
   <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets" Condition="Exists('$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets')" />
 
-  <ItemGroup>
-    <FilesToZip Include="..\.gitignore" />
-    <FilesToZip Include="..\lib\**" />
-    <FilesToZip Include="..\*.bat" />
-    <FilesToZip Include="..\Build\*.nunit" />
-    <FilesToZip Include="..\*.txt" />
-    <FilesToZip Include="..\**\*.proj" />
-    <FilesToZip Include="..\Build\*.targets" />
-    <FilesToZip Include="..\Build\*.js" />
-    <FilesToZip Include="..\*.sln" />
-    <FilesToZip Include="..\**\*.csproj" Exclude="..\packages\**" />
-    <FilesToZip Include="..\**\CoverageFilter.txt" />
-    <FilesToZip Include="..\**\*.cs" Exclude="..\_output\AssemblyInfo.cs;..\**\obj\**;..\packages\**" />
-    <FilesToZip Include="..\**\*.cshtml" />
-    <FilesToZip Include="..\**\*.asax" />
-    <FilesToZip Include="..\**\*.config" Exclude="..\packages\**;..\.vs\**;..\Lucid.Web\bin\**;..\Lucid.Web\settings.config" />
-    <FilesToZip Include="..\**\*.eot;**\*.svg;**\*.ttf;**\*.woff;**\*.woff2" Exclude="..\packages\**" />
-    <FilesToZip Include="**\*.css;**\*.map" />
-    <FilesToZip Include="..\**\favicon.ico" />
-  </ItemGroup>
-  
   <Target Name="CreateInfo" Inputs="CreateInfo.proj" Outputs="AssemblyInfo.cs">
+    <AssemblyInfo AssemblyVersion="1.2.3.4" CodeLanguage="CS" />
   </Target>
 
   <Target Name="Clean">
