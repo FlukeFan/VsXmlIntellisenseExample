@@ -4,3 +4,4 @@
 *.suo
 *.sln.cache
 /.vs
+XmlIntellisense/AssemblyInfo.cs
